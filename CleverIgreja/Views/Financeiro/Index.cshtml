@@ -1,0 +1,124 @@
+﻿@model IEnumerable<CleverIgreja.Models.Financeiro>
+
+@{
+    ViewData["Title"] = "Financeiro";
+}
+
+<div class="pagetitle">
+    <h3>
+        @ViewData["Title"]
+    </h3>
+</div>
+
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DtLanc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DtVenc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DtPagto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DtCompetencia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TipoMovimentacaoFinanceira)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumeroDocumento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ParceiroId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Parceiro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Historico)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Valor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Desconto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Juros)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Total)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Moeda)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Categoria)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DtLanc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DtVenc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DtPagto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DtCompetencia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TipoMovimentacaoFinanceira)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumeroDocumento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ParceiroId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Parceiro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Historico)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Valor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Desconto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Juros)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Total)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Moeda.MoedaId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Categoria.CategoriaId)
+            </td>
+            <td class="text-center">
+                <a asp-action="Edit" asp-route-id="@item.FinanceiroId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.FinanceiroId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.FinanceiroId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

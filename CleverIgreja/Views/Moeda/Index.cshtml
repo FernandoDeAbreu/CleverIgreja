@@ -1,0 +1,53 @@
+﻿@model IEnumerable<CleverIgreja.Models.Moeda>
+
+
+@{
+    ViewData["Title"] = "Cadastro de Moedas";
+}
+
+<div class="pagetitle">
+    <h3>
+        @ViewData["Title"]
+    </h3>
+</div>
+
+
+<form asp-action="Index" method="get">
+    <div class="mb-3 mt-3 no-color ">
+        <label for="text" class="form-label">Paramentros da pesquisa:</label>
+        <input type="text" class="form-control" name="SearchString" value="@ViewData["CurrentFilter"]" />
+    </div>
+    <div class="mb-3 align-content-end ">
+        <input type="submit" value="Pesquisar" class="btn btn-primary justify-end" />
+        <a class="btn btn-primary justify-end" asp-action="Index">Listar todos</a>
+        <a class="btn btn-primary justify-end" asp-action="Create">Novo</a>
+    </div>
+</form>
+
+<table class="table table-striped table-bordered table-hover">
+    <thead class="">
+        <tr>
+            <th class ="col-md-10">
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["DescricaoParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Descrição</a>
+            </th>
+            <th class="text-center col-md-2">
+               <a asp-action="Index" asp-route-sortOrder="@ViewData[""]" asp-route-currentFilter="@ViewData[""]">Ações</a>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descricao)
+                </td>
+                <td class="text-center">
+                    <a asp-action="Edit" class="btn btn-primary bi bi-pencil-square btn-sm" asp-route-id="@item.MoedaId"></a>
+                    <a asp-action="Details" class="btn btn-secondary bi bi-eye btn-sm" asp-route-id="@item.MoedaId"></a>
+                    <a asp-action="Delete" class="btn btn-danger bi bi-trash3 btn-sm" asp-route-id="@item.MoedaId"></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

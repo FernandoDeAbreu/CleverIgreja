@@ -2,7 +2,7 @@
 
 namespace CleverIgreja.Shared
 {
-    public enum Enum
+    public enum Enums
     {
     }
 

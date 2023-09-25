@@ -1,9 +1,8 @@
-﻿@model CleverIgreja.Models.Membro
+﻿@model CleverIgreja.Models.Igreja
 
 @{
-    ViewData["Title"] = "Editar Membro";
+    ViewData["Title"] = "Cadastrar Igreja";
 }
-
 
 <div class="pagetitle">
     <h3>
@@ -14,9 +13,8 @@
 <hr />
 <div class="card">
     <div class="card-body pt-3">
-        <form asp-action="Edit" class="row g-3">
+        <form asp-action="Create" class="row g-3">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="MembroId" />
             <div class="col-md-2">
                 <label asp-for="TipoPessoa" class="control-label"></label>
                 <select asp-for="TipoPessoa" class="form-control">
@@ -113,7 +111,8 @@
                 <input asp-for="Observacao" class="form-control" />
                 <span asp-validation-for="Observacao" class="text-danger"></span>
             </div>
-         
+            <br />
+
             <div class="col-md-12 d-flex justify-content-end" style="margin-top: 20px">
                 <a asp-action="Index" class="btn btn-secondary">Voltar</a>
                 <input type="submit" value="Salvar" class="btn btn-primary" style="margin-left: 10px" />
@@ -123,6 +122,9 @@
 </div>
 
 
+
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }
